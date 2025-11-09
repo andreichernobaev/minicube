@@ -1,0 +1,36 @@
+
+    9  curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64   && chmod +x minikube
+   10  sudo mkdir -p /usr/local/bin/
+   11  sudo install minikube /usr/local/bin/
+   12  curl -LO https://dl.k8s.io/release/`curl -LS https://dl.k8s.io/release/stable.txt`/bin/linux/amd64/kubectl
+   13  chmod +x ./kubectl
+   14  sudo mv ./kubectl /usr/local/bin/kubectl
+   16  minikube start
+   17  mkdir minikube
+   21  cd  minikube
+   24  nano rs_slide.yaml
+   25  kubectl create -f rs_slide.yaml
+   26  kubectl get replicaset
+   27  kubectl get pods
+   28  kubectl edit pod nginx-gbt6f
+   29  kubectl get pods
+   30  kubectl edit pod nginx-gbt6f
+   31  kubectl get pods
+   37  kubectl get pods -o=custom-columns=NAME:metadata.name,DATA:.metadata.ownerReferences
+   38  kubectl scale replicaset nginx --replicas=5
+   39  kubectl get replicaset
+   40  kubectl scale replicaset nginx --replicas=1
+   41  kubectl get replicaset
+   42  kubectl delete replicaset nginx
+   43  kubectl get replicaset
+   44  nano rs_slide.yaml
+   45  kubectl create -f rs_slide.yaml
+   46  nano rs_slide.yaml
+   47  kubectl create -f rs_slide.yaml
+   48  kubectl get replicaset
+   49  kubectl get pods
+   50  kubectl delete replicaset nginx --cascade=false
+   51  kubectl get pods
+   52  kubectl get replicaset
+   53  nano rs_slide.yaml
+
