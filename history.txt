@@ -33,4 +33,43 @@
    51  kubectl get pods
    52  kubectl get replicaset
    53  nano rs_slide.yaml
+   60  minikube start
+   61  ls
+   64  nano deployment.yaml
+   75  kubectl create -f deployment.yaml --record
+   76  kubectl get deployment
+   77  kubectl rollout status deployment app-deployment
+   78  kubectl get deployment
+   79  kubectl get replicaset
+   80  kubectl get deployment
+   81  kubectl rollout status deployment app-deployment
+   88  kubectl delete deployment  app-deployment
+   89  kubectl get app-deployment
+   90  kubectl rollout status deployment app-deployment
+   91  nano Dockerfile1
+   92  nano Dockerfile2
+   93  nano Dockerfile1
+   94  nano Dockerfile2
+   95  docker build -t app:v1.0 -f Dockerfile1
+   96  docker build -t app:v1.0 -f Dockerfile1 .
+   97  docker build -t app:v2.0 -f Dockerfile2 .
+   98  minikube image load app:v1.0
+   99  minikube image load app:v2.0
+  101  mc
+  102  kubectl create -f deployment.yaml
+  103  kubectl get pods
+  104  kubectl logs app-deployment-fbbbd497b-mc4js
+  105  kubectl set image deployment app-deployment app=app:v2.0 --record
+  106  kubectl rollout status deployment app-deployment
+  107  kubectl get pods
+  108  kubectl logs  app-deployment-7cdb4989c9-47k2g
+  109  kubectl rollout undo deployment app-deployment
+  110  kubectl get pods
+  111  kubectl logs  app-deployment-fbbbd497b-dt85p
+  112  kubectl get pods
+  113  kubectl rollout history deployment app-deployment
+  114  kubectl rollout undo deployment app-deployment --to-revision=2
+  115  kubectl get pods
+  116  kubectl logs  app-deployment-7cdb4989c9-jh4x5
+  117  kubectl delete deployment  app-deployment
 
