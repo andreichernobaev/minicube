@@ -72,4 +72,22 @@
   115  kubectl get pods
   116  kubectl logs  app-deployment-7cdb4989c9-jh4x5
   117  kubectl delete deployment  app-deployment
+  118  nano ds.yaml
+  123  kubectl create -f ds.yaml
+  124  kubectl get daemonset
+  125  kubectl get pods
+  127  kubectl delete  -f  ds.yaml
+  128  kubectl get nodes --show-labels
+  130  kubectl label node minikube env=dev
+  131  kubectl get nodes --show-labels
+  132  nano ds.yaml
+  133  kubectl create -f ds.yaml
+  134  kubectl get daemonset
+  135  kubectl get pods
+  136  kubectl label node minikube env=prod --overwrite
+  137  kubectl get nodes --show-labels
+  138  kubectl get pods
+  
+
+
 
