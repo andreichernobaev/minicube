@@ -99,6 +99,8 @@
   161  kubectl describe endpoints nginx-deployment
   163  kubectl run tmp-pod --rm -i --tty --image nicolaka/netshoot -- /bin/bash
        curl http://nginx-deployment
+       curl http://nginx-deployment.default
+       curl http://nginx-deployment.default.svc.cluster.local
   164  kubectl scale deployment nginx-deployment --replicas 1
   165  kubectl get pods
   166  kubectl logs -f nginx-deployment-66b46d7b79-4qznm
