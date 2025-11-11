@@ -106,7 +106,13 @@
   166  kubectl logs -f nginx-deployment-66b46d7b79-4qznm
   168  kubectl delete service nginx-deployment
   169  kubectl delete -f deployment_nginx.yaml
-
+  160  nano job.yaml
+  165  kubectl logs pi-66hdf
+  169  kubectl create -f job.yaml
+  170  kubectl get pods
+  171  kubectl logs pi-5v6md
+  172  kubectl get pods
+  173  kubectl delete -f job.yaml
   
 
 
