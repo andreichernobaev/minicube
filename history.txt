@@ -87,6 +87,24 @@
   136  kubectl label node minikube env=prod --overwrite
   137  kubectl get nodes --show-labels
   138  kubectl get pods
+  150  nano deployment_nginx.yaml
+  151  kubectl create -f deployment_nginx.yaml
+  152  kubectl get pods
+  154  kubectl get pods -o wide
+  156  kubectl expose deployment nginx-deployment --port 80 --target-port 80
+  157  kubectl get services
+  158  kubectl describe service  nginx-deployment
+  159  kubectl get endpoints
+  160  kubectl get endpoints nginx-deployment
+  161  kubectl describe endpoints nginx-deployment
+  163  kubectl run tmp-pod --rm -i --tty --image nicolaka/netshoot -- /bin/bash
+       curl http://nginx-deployment
+  164  kubectl scale deployment nginx-deployment --replicas 1
+  165  kubectl get pods
+  166  kubectl logs -f nginx-deployment-66b46d7b79-4qznm
+  168  kubectl delete service nginx-deployment
+  169  kubectl delete -f deployment_nginx.yaml
+
   
 
 
