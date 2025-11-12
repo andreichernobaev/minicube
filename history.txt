@@ -113,6 +113,13 @@
   171  kubectl logs pi-5v6md
   172  kubectl get pods
   173  kubectl delete -f job.yaml
+  226  kubectl create -f cronjob.yaml
+  227  kubectl get cronjob
+  228  watch kubectl get cronjob
+  229  kubectl get pods
+  230  kubectl get logs hello-29382072-dq744
+  231  kubectl logs hello-29382072-dq744
+  232  kubectl delete -f cronjob.yaml
   
 
 
