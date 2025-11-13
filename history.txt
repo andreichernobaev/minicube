@@ -134,6 +134,17 @@
   244  kubectl create -f pod_cm.yaml
   245  kubectl get pods
   247  kubectl exec demo-app -- printenv
+  252  echo "YWRtaW4=" | base64 -d
+  253  echo "MWYyZDFlMmU2N2Rm" | base64 -d
+  254  mcedit sec.yaml
+  255  kubectl create -f sec.yaml
+  256  kubectl get secret
+  257  kubectl describe secret mysecret
+  258  nano username.txt
+  259  nano password.txt
+  261  kubectl create secret generic user-creds --from-file=./username.txt  --from-file=./password.txt
+  262  kubectl describe secret user-creds
+
 
 
 
