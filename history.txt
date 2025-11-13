@@ -120,7 +120,14 @@
   230  kubectl get logs hello-29382072-dq744
   231  kubectl logs hello-29382072-dq744
   232  kubectl delete -f cronjob.yaml
-  
+  238  kubectl create -f init.yaml
+  239  kubectl get pods
+  240  kubectl logs myapp-pod -c init-db
+       kubectl get event --field-selector involvedObject.name=myapp-pod --watch
+  241  kubectl create service clusterip mydb --tcp=5432:5432
+  242  kubectl get pods
+  243  kubectl delete service mydb
+  244  kubectl delete pod myapp-pod
 
 
 
