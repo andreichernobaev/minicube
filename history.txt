@@ -128,6 +128,13 @@
   242  kubectl get pods
   243  kubectl delete service mydb
   244  kubectl delete pod myapp-pod
+  238  nano cm_prod.yaml
+  240  kubectl create -f cm_prod.yaml
+  242  kubectl describe configmaps demo-app-config
+  244  kubectl create -f pod_cm.yaml
+  245  kubectl get pods
+  247  kubectl exec demo-app -- printenv
+
 
 
 
