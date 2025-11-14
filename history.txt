@@ -144,6 +144,9 @@
   259  nano password.txt
   261  kubectl create secret generic user-creds --from-file=./username.txt  --from-file=./password.txt
   262  kubectl describe secret user-creds
+  281  kubectl get pods -n kube-system
+  283  kubectl get pod coredns-66bc5c9577-x26kl -n kube-system -o json
+  284  kubectl get serviceaccount coredns -n kube-system -o json
 
 
 
