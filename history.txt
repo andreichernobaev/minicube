@@ -147,6 +147,10 @@
   281  kubectl get pods -n kube-system
   283  kubectl get pod coredns-66bc5c9577-x26kl -n kube-system -o json
   284  kubectl get serviceaccount coredns -n kube-system -o json
+  kubectl create -f pod_sa.yaml
+  kubectl exec -ti nginx -n kube-system -- bash
+  cd /var/run/secrets/kubernetes.io/serviceaccount
+  cat token
 
 
 
