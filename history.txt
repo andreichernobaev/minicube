@@ -151,6 +151,16 @@
   kubectl exec -ti nginx -n kube-system -- bash
   cd /var/run/secrets/kubernetes.io/serviceaccount
   cat token
+  kubectl get clusterroles -A 
+  minikube ssh
+    1  docker ps
+    2  docker inspect k8s_kube-apiserver_kube-apiserver-minikube_kube-system_8312b4cdc4b705c0e12f63794469cfad_5
+    3  cd /var/lib/minikube/certs
+    4  nano static-tokens
+    5  vim static-tokens
+    6  vi static-tokens
+  
+  
 
 
 
