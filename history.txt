@@ -159,6 +159,14 @@
     4  nano static-tokens
     5  vim static-tokens
     6  vi static-tokens
+minikube start --cni=bridge
+kubectl run nginx --image=nginx
+minikube ssh -n minikube
+docker exec -ti 80ac6b68cb33 bash
+apt update && apt install iproute2 
+minikube start --nodes 3 --cni=flannel
+kubectl get pods -A -o wide | grep flannel
+kubectl get daemonset -A
   
   
 
