@@ -167,7 +167,20 @@ apt update && apt install iproute2
 minikube start --nodes 3 --cni=flannel
 kubectl get pods -A -o wide | grep flannel
 kubectl get daemonset -A
-  
+  459  nano deny_all.yaml
+  460  kubectl create -f deny_all.yaml
+  461  kubectl run app --image nicolaka/netshoot --labels="app=app" -- /bin/bash -c "sleep 3600"
+  462  kubectl run db --image postgres --labels="app=database" --env="POSTGRES_PASSWORD=123"
+  463  kubectl get pods -o wide
+  464  kubectl exec -ti app -- bash
+telnet 10.244.0.131 5432
+  465  nano allow.yaml
+  466  kubectl create -f allow.yaml
+  467  kubectl exec -ti app -- bash
+  468  kubectl delete -f allow.yaml
+  469  kubectl exec -ti app -- bash
+  470  mc
+  471  kubectl delete -f deny_all.yaml  
   
 
 
