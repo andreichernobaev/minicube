@@ -181,6 +181,26 @@ telnet 10.244.0.131 5432
   469  kubectl exec -ti app -- bash
   470  mc
   471  kubectl delete -f deny_all.yaml  
+ 476  minikube start --nodes 3 --cni flannel
+  477  kubectl run nginx1 --image nginx --labels="app=my-app"
+  478  kubectl run nginx2 --image nginx --labels="app=my-app"
+  479  nano svc.yaml
+  480  mc
+  482  cd minikube
+  484  kubectl create -f svc.yaml
+  485  get pods -o wide
+  486  kubectl get pods -o wide
+  487  kubectl describe service my-service
+  489  kubectl get nodes
+  490  minikube node add
+  491  kubectl get nodes
+  492  kubectl run nginx3 --image nginx --labels="app=my-app"
+  493  kubectl proxy --port 8080
+  494  kubectl port-forward service/my-service 10000:80
+  497  nano lb.yaml
+  498  kubectl create -f lb.yaml
+  499  kubectl get services
+
   
 
 
