@@ -1,4 +1,63 @@
-
+   27  kubectl config view
+   28  kubectl cluster-info
+   29  kubectl get no
+   30  kubectl get no -o wide
+   31  kubectl version
+   32  minikube status
+   33  kubectl get pods
+   34  kubectl get  namespaces
+   35  kubectl get  pods -n kube-system
+   36  kubectl get pods
+   37  kubectl get pods -A
+   38  cd ./kube
+   39  ls
+   40  mc
+   41  cd /kube
+   42  cd kube
+   43  ls -a
+   44  cd .kube
+   45  nano pod.yaml
+   46  kubectl create -f pod.yaml
+   47  kubectl get pods
+   48  kubectl logs my-pod
+   49  cd .
+   50  cd ~
+   51  mkdir server
+   52  cd server
+   53  nano app.py
+   54  l
+   55  nano Dockerfile
+   56  nano requirements.txt
+   57  docker build -t server:1.0 .
+   58  docker images
+   59  mc
+   60  minikube image load server:1.0
+   61  minikube image list
+   62  cd ..
+   63  nano pod_app.yaml
+   64  kubectl create -f pod_app.yaml
+   65  kubectl get pods
+   66  kubectl logs -f app -c server
+   67  kubectl logs -f app -c client
+   68  cd .kube
+   69  ls
+   70  mc
+   71  cd ..
+   72  mc
+   73  nano pod.yaml
+   74  kubectl create -f pod.yaml
+   75  kubectl get pods --show-labels
+   76  mc
+   77  kubectl create -f pod2.yaml
+   78  kubectl get pods --show-labels
+   79  kubectl get pods -l app=nginx2
+   80  kubectl get pods -l app=nginx
+   81  kubectl get pods -l cluster=prod
+   82  kubectl get pods -l app!=nginx
+   83  kubectl get pods -l app!=nginx,cluster=prod
+   84  kubectl delete pods -l cluster=prod
+   85  top
+   86  docker stats   
     9  curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64   && chmod +x minikube
    10  sudo mkdir -p /usr/local/bin/
    11  sudo install minikube /usr/local/bin/
