@@ -259,7 +259,23 @@ telnet 10.244.0.131 5432
   497  nano lb.yaml
   498  kubectl create -f lb.yaml
   499  kubectl get services
-
+     91  nano pod_2_volumes.yaml
+   92  minikube start
+   99  kubectl create -f pod_2_volumes.yaml
+  100  kubectl exec -ti my-pod -- bash
+  104  nano pod_shared_data.yaml
+       kubectl create -f  pod_shared_data.yaml
+  117  kubectl exec -ti two-containers -c second-container -- bash
+       tail -f /pod-data/index.html
+  122  nano nginx.conf
+  123  kubectl create configmap nginx-config --from-file=nginx.conf
+  124  kubectl get configmaps nginx-config -o yaml
+  130  kubectl create -f  pod_configmap.yaml
+  131  kubectl delete -f  pod_shared_data.yaml
+  132  kubectl create -f  pod_configmap.yaml
+  134  kubectl exec -ti two-containers -c first-container -- bash
+       nginx -T
+       while true;do curl http://localhost:8080;sleep 2;done
   
 
 
