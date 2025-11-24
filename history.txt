@@ -287,6 +287,36 @@ telnet 10.244.0.131 5432
   637  kubectl expose pod/vault --name vault --port=8200 --target-port=8200
   638  kubectl get po
   639  kubectl port-forward vault 8200:8200
+   27  sudo apt-get install curl gpg apt-transport-https --yes
+   28  curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+   29  echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+   30  sudo apt-get update
+   31  sudo apt-get install helm
+   32  helm version
+   33  helm help
+   34  minikube start
+   35  helm repo add stable https://charts.helm.sh/stable
+   36  helm repo list
+   37  helm repo update
+   38  helm search repo stable
+   39  helm search hub grafana
+   41  helm search hub grafana --max-col-width 80
+   42  helm repo add grafana https://grafana.github.io/helm-charts
+   43  helm repo update
+   44  helm show values grafana/grafana --version 10.1.4 > values.yaml
+   45  mc
+   46  kubectl create ns monitoring
+   47  helm upgrade --install grafana grafana/grafana -f values.yaml -n monitoring --version 10.1.4
+   48  kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+   49  export POD_NAME=$(kubectl get pods --namespace monitoring -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}")
+   50  kubectl --namespace monitoring port-forward $POD_NAME 3000
+   52  kubectl get po -n monitoring
+   53  kubectl describe po -n monitoring grafana-6f4d6b8dc-2p7qn
+   54  kubectl describe pvc -n monitoring grafana
+   65  helm upgrade --install grafana grafana/grafana -f values.yaml -n monitoring --version 10.1.4 --set image.tag=12.3.0
+   72  helm history grafana -n monitoring
+       helm rollback grafana 1 -n monitoring
+
   
 
 
